@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kurush.Loops - Create Pattern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f8cccc;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #f8cccc;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .close-btn {
+      display: none;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      text-align: right;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .sidebar .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar img.logo {
+      width: 45px;
+      border-radius: 50%;
+    }
+
+    .sidebar h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ff4d6d;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .nav-link:hover {
+      background-color: white;
+      color: #ff4d6d;
+      transform: translateX(5px);
+    }
+
+    .nav-link.active {
+      background-color: white;
+      color: #ff4d6d;
+      box-shadow: inset 0 0 0 2px #ff4d6d;
+    }
+
+    .nav-link i {
+      width: 20px;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .search-box {
+      background: #e2e2e2;
+      border-radius: 25px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      width: 60%;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .icons {
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+      color: #ff6b81;
+      position: relative;
+    }
+
+    .icons a {
+      color: #ff6b81;
+      text-decoration: none;
+    }
+
+    .icons i {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .icons i:hover {
+      transform: scale(1.2);
+      color: #d64061;
+    }
+
+    .notification-dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: #ffd8d8;
+      border: 10px solid hwb(0 61% 0%);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+      z-index: 1000;
+    }
+
+    .notification-dropdown.active {
+      display: block;
+    }
+
+    .notification-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .card-container {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #ff6b81;
+      box-shadow: 0 0 5px rgba(255, 107, 129, 0.3);
+    }
+
+    .submit-btn {
+      background-color: #ff6b81;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #e55b73;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #f8cccc;
+        z-index: 1000;
+        transform: translateX(-100%);
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .close-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <div class="logo-row">
+      <img src="assets/assets/images/LOGOwithoutBG.png" alt="Kurush Logo" class="logo" />
+      <h2>KURUSH.LOOPS</h2>
+    </div>
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> HOME</a>
+    <a href="freePatterns.html" class="nav-link"><i class="fas fa-th-large"></i> FREE PATTERNS</a>
+    <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> SHOP</a>
+    <a href="sales.html" class="nav-link"><i class="fas fa-tags"></i> SALES</a>
+    <a href="#" class="nav-link active"><i class="fas fa-plus"></i> CREATE PATTERN</a>
+    <a href="#" class="nav-link"><i class="fas fa-comments"></i> CHAT</a>
+    <a href="#" class="nav-link"><i class="fas fa-video"></i> TUTORIALS</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <i class="fas fa-bars hamburger" onclick="toggleSidebar()"></i>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search Patterns..." />
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell" onclick="toggleNotifications()" title="Notifications"></i>
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="notification-item">🧶 New pattern idea: "Cozy Sloth" added!</div>
+          <div class="notification-item">📝 Reminder: Finish writing "Granny Square" tutorial</div>
+        </div>
+        <a href="settings.html"><i class="fas fa-cog" title="Settings"></i></a>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <h2 style="margin-bottom: 20px;">Create New Pattern</h2>
+      <form>
+        <div class="form-group">
+          <label for="pattern-title">Pattern Title</label>
+          <input type="text" id="pattern-title" placeholder="e.g., Cozy Cat Plush" />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" rows="4" placeholder="Write a short description of the pattern..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price (NPR)</label>
+          <input type="number" id="price" placeholder="e.g., 500" />
+        </div>
+
+        <div class="form-group">
+          <label for="image">Upload Image</label>
+          <input type="file" id="image" />
+        </div>
+
+        <button type="submit" class="submit-btn">Save Pattern</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function toggleNotifications() {
+      document.getElementById('notificationDropdown').classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (e) {
+      const bell = document.querySelector('.fa-bell');
+      const dropdown = document.getElementById('notificationDropdown');
+      if (!dropdown.contains(e.target) && !bell.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

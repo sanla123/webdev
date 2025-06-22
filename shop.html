@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kurush.Loops - Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/assets/css/shop.css"/>
+</head>
+<body>
+  <div class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <div class="logo-row">
+      <img src="assets/assets/images/LOGOwithoutBG.png" alt="Kurush Logo" class="logo" />
+      <h2>KURUSH.LOOPS</h2>
+    </div>
+    <a href="homePage.html" class="nav-link"><i class="fas fa-home"></i> HOME</a>
+    <a href="freePatterns.html" class="nav-link"><i class="fas fa-th-large"></i> FREE PATTERNS</a>
+    <a href="#" class="nav-link active"><i class="fas fa-store"></i> SHOP</a>
+    <a href="sales.html" class="nav-link"><i class="fas fa-tags"></i> SALES</a>
+    <a href="#" class="nav-link"><i class="fas fa-plus"></i> CREATE GRID</a>
+    <a href="#" class="nav-link"><i class="fas fa-comments"></i> CHAT</a>
+    <a href="tutorialPage.html" class="nav-link"><i class="fas fa-video"></i> TUTORIALS</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <i class="fas fa-bars hamburger" onclick="toggleSidebar()" aria-label="Toggle sidebar"></i>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search Shop Patterns.." />
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell" title="Notifications" onclick="toggleNotifications()"></i>
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="notification-item">🎉 New pattern "Daisy Bag" just added!</div>
+          <div class="notification-item">🔥 30% off on all bunny plushies today!</div>
+          <div class="notification-item">🧵 Creator xyz liked your comment.</div>
+          <div class="notification-item">📦 Your order #1234 has been shipped.</div>
+        </div>
+        <a href="settings.html"><i class="fas fa-cog" title="Settings"></i></a>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="grid">
+        <div class="card"><img src="assets/assets/images/shopBUNNY.jpg" alt="Bunny Pattern"/><div class="card-info"><span>by: craftgurl</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/shopPARTS.jpg" alt="Parts Pattern"/><div class="card-info"><span>by: loopypaws</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/shopSHEEP.jpg" alt="Sheep Pattern"/><div class="card-info"><span>by: cozythreadz</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/shopOGGY.jpg" alt="Oggy Pattern"/><div class="card-info"><span>by: fluffynook</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/shopVENOM.jpg" alt="Venom Pattern"/><div class="card-info"><span>by: cozythreadz</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/tungtung.jpg" alt="Tung Tung Pattern"/><div class="card-info"><span>by: fluffynook</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/tomandjerry.jpg" alt="Tom and Jerry Pattern"/><div class="card-info"><span>by: cozythreadz</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/naruto.jpg" alt="Naruto Pattern"/><div class="card-info"><span>by: fluffynook</span><i class="fas fa-ellipsis-h"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+    function toggleNotifications() {
+      document.getElementById('notificationDropdown').classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      const bell = document.querySelector('.fa-bell');
+      const dropdown = document.getElementById('notificationDropdown');
+      if (!dropdown.contains(e.target) && !bell.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

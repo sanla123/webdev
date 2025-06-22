@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kurush.Loops - Free Patterns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/assets/css/freePats.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <div class="logo-row">
+      <img src="assets/assets/images/LOGOwithoutBG.png" alt="Kurush Logo" class="logo" />
+      <h2>KURUSH.LOOPS</h2>
+    </div>
+    <a href="homePage.html" class="nav-link"><i class="fas fa-home"></i> HOME</a>
+    <a href="#" class="nav-link active"><i class="fas fa-th-large"></i> FREE PATTERNS</a>
+    <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> SHOP</a>
+    <a href="sales.html" class="nav-link"><i class="fas fa-tags"></i> SALES</a>
+    <a href="#" class="nav-link"><i class="fas fa-plus"></i> CREATE GRID</a>
+    <a href="#" class="nav-link"><i class="fas fa-comments"></i> CHAT</a>
+    <a href="tutorialPage.html" class="nav-link"><i class="fas fa-video"></i> TUTORIALS</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <i class="fas fa-bars hamburger" onclick="toggleSidebar()"></i>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search Free Patterns.."/>
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell" title="Notifications" onclick="toggleNotifications()"></i>
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="notification-item">🎉 New pattern "Daisy Bag" just added!</div>
+          <div class="notification-item">🔥 30% off on all bunny plushies today!</div>
+          <div class="notification-item">🧵 Creator xyz liked your comment.</div>
+          <div class="notification-item">📦 Your order #1234 has been shipped.</div>
+        </div>
+        <a href="settings.html"><i class="fas fa-cog" title="Settings"></i></a>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="grid">
+        <!-- Free Pattern Cards -->
+        <div class="card"><img src="assets/assets/images/cow.jpg" alt="Free Cow Pattern"/><div class="card-info"><span>by: xyz</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/bunny.jpg" alt="Free Bunny Pattern"/><div class="card-info"><span>by: ijkhh</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/frog.jpg" alt="Crochet Frog" loading="lazy"/><div class="card-info"><span>by: vrmp</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/penguin.jpg" alt="Crochet Penguin" loading="lazy"/><div class="card-info"><span>by: jjlhp</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/twobunnies.jpg" alt="Sample Pattern 1" loading="lazy"/><div class="card-info"><span>by: creator1</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/twopurse.jpg" alt="Sample Pattern 2" loading="lazy"/><div class="card-info"><span>by: creator2</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/bag.jpg" alt="Sample Pattern 7" loading="lazy"/><div class="card-info"><span>by: creator7</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/bnwmouse.jpg" alt="Sample Pattern 4" loading="lazy"/><div class="card-info"><span>by: creator4</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/bow.jpg" alt="Sample Pattern 5" loading="lazy"/><div class="card-info"><span>by: creator5</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/combo.jpg" alt="Sample Pattern 8" loading="lazy"/><div class="card-info"><span>by: creator8</span><i class="fas fa-ellipsis-h"></i></div></div>
+        <div class="card"><img src="assets/assets/images/scrunchie.jpg" alt="Sample Pattern 9" loading="lazy"/><div class="card-info"><span>by: creator9</span><i class="fas fa-ellipsis-h"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function toggleNotifications() {
+      document.getElementById('notificationDropdown').classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (e) {
+      const bell = document.querySelector('.fa-bell');
+      const dropdown = document.getElementById('notificationDropdown');
+      if (!dropdown.contains(e.target) && !bell.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

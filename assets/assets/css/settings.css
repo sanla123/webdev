@@ -1,0 +1,172 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f8c8c8;
+      padding: 20px;
+    }
+
+    .settings-container {
+      background-color: #eee;
+      border: 3px solid #ff6f6f;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      color: #333;
+    }
+
+    .back-arrow a {
+      font-size: 20px;
+      color: #ff6b6b;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .settings-title {
+      color: #ff6f6f;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* My account card flex layout */
+    .card.my-account {
+      background-color: #ffecec;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .profile-pic {
+      flex-shrink: 0;
+    }
+
+    .profile-pic img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ff6f6f;
+      display: block;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .account-info strong {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .account-info p {
+      color: #444;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .account-info a {
+      font-size: 14px;
+      color: #ff6f6f;
+      text-decoration: underline;
+      width: fit-content;
+    }
+
+    .card {
+      background-color: #ffecec;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      /* For other cards without image */
+      text-align: center;
+    }
+
+    .card p {
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .card a {
+      font-size: 14px;
+      color: #ff6f6f;
+      text-decoration: underline;
+    }
+
+    .setting-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #ffecec;
+      border: 1px solid #ff6f6f;
+      border-radius: 25px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      color: #444;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .setting-option:hover {
+      background-color: #ffdfdf;
+    }
+
+    .setting-option i {
+      font-size: 18px;
+      color: #ff6f6f;
+    }
+
+    .setting-label {
+      font-size: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .settings-container {
+        padding: 20px;
+      }
+
+      .setting-label {
+        font-size: 14px;
+      }
+
+      .card p,
+      .account-info p {
+        font-size: 14px;
+      }
+
+      /* Stack my-account card vertically on small screens */
+      .card.my-account {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-pic {
+        margin-bottom: 15px;
+      }
+    }
