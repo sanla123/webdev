@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kurush.Loops</title>
+  <link rel="stylesheet" href="assets/assets/css/landPG.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/assets/css/landing.css"/>
 </head>
 <body>
   <header>
@@ -21,33 +21,38 @@
     <div class="nav-wrapper">
       <nav>
         <a href="popularPage.html">POPULAR</a>
-        <a href="#">CONTACT US</a>
+        <a href="#">COLLECTIONS</a>
         <a href="#">ABOUT US</a>
       </nav>
+
       <div class="search-box">
         <span class="search-icon">🔍</span>
         <input type="text" placeholder="Search.." />
       </div>
-      <div class="settings-icon"><a href="settings.html"><i class="fa-solid fa-gear"></i></a></div>
+
+      <div class="settings-icon"><i class="fa-solid fa-gear"></i></div>
     </div>
   </header>
 
   <div id="mobileMenu" class="mobile-nav">
     <a href="popularPage.html">POPULAR</a>
-    <a href="#">CONTACT US</a>
+    <a href="#">COLLECTIONS</a>
     <a href="#">ABOUT US</a>
     <div class="search-box">
       <span class="search-icon">🔍</span>
       <input type="text" placeholder="Search.." />
     </div>
-    <div class="settings-icon"><a href="settings.html"><i class="fa-solid fa-gear"></i></a></div>
+    <div class="settings-icon"><i class="fa-solid fa-gear"></i></div>
   </div>
 
   <section class="main">
     <div class="text-section">
       <h1>Welcome to creative loops</h1>
-      <p>Start your creativity journey now — where design meets inspiration and passion turns into pattern.</p>
-      <a href="loginPage.html" class="read-more-btn">GET STARTED</a>
+      <p>
+        Start your creativity journey now — where design meets inspiration and
+        passion turns into pattern.
+      </p>
+      <a href="loginPage.html"  class="read-more-btn">GET STARTED</a>
     </div>
     <div class="image-section">
       <img class="illustration" src="assets/assets/images/yarnballs.avif" alt="Illustration" />
@@ -57,8 +62,13 @@
   <footer>
     <div class="footer-section">
       <h4>About Kurush.Loops</h4>
-      <p>Your cozy corner for creative crochet patterns and beginner guides.</p>
+      <p>
+        Your cozy corner for creative crochet patterns, beginner guides, and a
+        loving community of yarn lovers.
+      </p>
     </div>
+    <div class="footer-section">
+
     <div class="footer-section">
       <h4>Contact</h4>
       <p>Email: hello@kurushloops.com</p>
@@ -68,7 +78,8 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('show');
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
     }
   </script>
 </body>

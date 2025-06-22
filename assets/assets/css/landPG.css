@@ -67,16 +67,16 @@
       gap: 20px;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #000;
+    nav a,
+    .mobile-nav a {
+      text-decoration: none !important;
+      color: #000 !important;
       font-weight: 600;
     }
 
-    .settings-icon a {
+    .settings-icon i{
       font-size: 1.2em;
       cursor: pointer;
-      text-decoration: none;
       color: #FF6B6B;
     }
 
@@ -137,7 +137,6 @@
       cursor: pointer;
       border-radius: 50px;
       text-decoration: none;
-      font-size: 1em;
     }
 
     .read-more-btn:hover {
@@ -158,39 +157,36 @@
 
     footer {
       background-color: #f6a6a6;
-      padding: 20px 30px;
+      color: #222;
+      padding: 30px 40px;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 100px;
-      font-size: 0.9em;
       flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      font-size: 0.95em;
     }
 
-    /* Ensure About Us on left, Contact in center */
-    footer > .footer-section:first-child {
-      order: 1;
+    .footer-section {
       flex: 1;
       min-width: 200px;
-      text-align: left;
-    }
-
-    footer > .footer-section:last-child {
-      order: 2;
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
     }
 
     .footer-section h4 {
-      font-size: 1em;
-      margin-bottom: 6px;
-      color: #333;
+      margin-bottom: 12px;
+      font-size: 1.1em;
     }
 
-    .footer-section p {
-      margin-bottom: 5px;
+    .footer-section p,
+    .footer-section a {
       color: #333;
+      font-size: 0.9em;
+      text-decoration: none;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      text-decoration: underline;
     }
 
     .hamburger {
@@ -213,20 +209,12 @@
     }
 
     .mobile-nav a {
-      color: #FF6B6B;
       text-decoration: none;
+      color: #000;
       font-weight: 600;
     }
 
-    .mobile-nav a:hover {
-      text-decoration: underline;
-    }
-
-    .mobile-nav .search-box {
-      margin-top: 10px;
-      width: 100%;
-    }
-
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -252,6 +240,7 @@
       .search-box {
         max-width: 100%;
         width: 100%;
+        margin: 20px 0;
       }
 
       .main {
@@ -269,44 +258,51 @@
       }
 
       footer {
-        padding: 10px 20px;
-        font-size: 0.75em;
         flex-direction: column;
-        align-items: center;
         text-align: center;
+        align-items: center;
+        padding: 20px;
+        font-size: 0.85em;
         gap: 10px;
       }
 
-      footer > .footer-section:first-child,
-      footer > .footer-section:last-child {
-        order: initial;
-        flex: none;
-        min-width: auto;
+      .footer-section {
         width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
+        padding: 5px 0;
+      }
+
+      .footer-section:nth-child(2) {
+        display: none; /* Hide Quick Links */
       }
 
       .footer-section h4 {
-        font-size: 0.85em;
+        font-size: 1em;
+        margin-bottom: 6px;
       }
 
-      .footer-section p {
-        font-size: 0.75em;
+      .footer-section p,
+      .footer-section a {
+        font-size: 0.8em;
+        margin-bottom: 4px;
       }
     }
 
     @media (max-width: 480px) {
-      footer {
-        padding: 8px 16px;
-        font-size: 0.7em;
+      .text-section h1 {
+        font-size: 1.8em;
       }
 
-      .footer-section h4 {
-        font-size: 0.8em;
+      .read-more-btn {
+        font-size: 1em;
+        padding: 10px 16px;
       }
 
-      .footer-section p {
-        font-size: 0.7em;
+      nav a,
+      .mobile-nav a {
+        font-size: 0.9em;
+      }
+
+      .search-box input {
+        width: 100px;
       }
     }
